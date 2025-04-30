@@ -3,14 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <title>Number Database</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Hello, World!</h1>
-        <p>This is my first webpage project with Git.</p>
-        <button id="changeColorBtn">Change Color</button>
+        <h1>Number Database</h1>
+        <p>Enter a number below to add it to the database:</p>
+        
+        <div class="input-form">
+            <input type="number" id="numberInput" placeholder="Enter a number">
+            <button id="addNumberBtn">Add Number</button>
+        </div>
+        
+        <div class="database-display">
+            <h2>Stored Numbers</h2>
+            <ul id="numbersList"></ul>
+            <div class="stats-display">
+                <p>Total entries: <span id="totalEntries">0</span></p>
+                <p>Sum: <span id="sumEntries">0</span></p>
+                <p>Average: <span id="avgEntries">0</span></p>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button id="clearDatabaseBtn">Clear Database</button>
+            <button id="changeColorBtn">Change Color</button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

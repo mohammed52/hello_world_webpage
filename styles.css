@@ -20,7 +20,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-    max-width: 500px;
+    max-width: 600px;
     width: 90%;
 }
 
@@ -29,9 +29,30 @@ h1 {
     margin-bottom: 1rem;
 }
 
+h2 {
+    color: #444;
+    margin: 1.5rem 0 1rem;
+    font-size: 1.3rem;
+}
+
 p {
     color: #666;
+    margin-bottom: 1rem;
+}
+
+.input-form {
+    display: flex;
+    justify-content: center;
     margin-bottom: 1.5rem;
+}
+
+input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 200px;
+    margin-right: 10px;
 }
 
 button {
@@ -47,4 +68,51 @@ button {
 
 button:hover {
     background-color: #45a049;
+}
+
+#clearDatabaseBtn {
+    background-color: #f44336;
+    margin-right: 10px;
+}
+
+#clearDatabaseBtn:hover {
+    background-color: #d32f2f;
+}
+
+.database-display {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+#numbersList {
+    list-style-position: inside;
+    margin-bottom: 1rem;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#numbersList li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.stats-display {
+    background-color: #f0f8ff;
+    border: 1px solid #e0e0ff;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.stats-display p {
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
 }
