@@ -4,115 +4,266 @@
     box-sizing: border-box;
 }
 
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(270deg, #ff7eb9, #ff65a3, #7afcff, #feff9c, #fff740);
+    background-size: 1000% 1000%;
+    animation: backgroundAnimation 30s ease infinite;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    transition: background-color 0.5s ease;
+    transition: all 0.8s ease;
+    overflow-x: hidden;
 }
 
 .container {
     background-color: white;
     padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     text-align: center;
     max-width: 600px;
     width: 90%;
+    transform: rotate(-1deg);
+    position: relative;
+    overflow: hidden;
+}
+
+.container::before {
+    content: '😂';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 40px;
+    opacity: 0.2;
+    transform: rotate(15deg);
+}
+
+.container:hover {
+    transform: rotate(1deg);
+    transition: transform 0.5s ease;
+}
+
+@keyframes colorCycle {
+    0% { color: #ff0000; }
+    25% { color: #00ff00; }
+    50% { color: #0000ff; }
+    75% { color: #ff00ff; }
+    100% { color: #ff0000; }
 }
 
 h1 {
     color: #333;
     margin-bottom: 1rem;
+    animation: colorCycle 5s infinite, bounce 2s ease infinite;
+    text-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+    font-size: 2.5rem;
 }
 
 h2 {
     color: #444;
     margin: 1.5rem 0 1rem;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    transform: rotate(-2deg);
+    display: inline-block;
 }
 
 p {
     color: #666;
     margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
 }
 
 .input-form {
     display: flex;
     justify-content: center;
     margin-bottom: 1.5rem;
+    align-items: center;
 }
 
 input[type="number"] {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 15px;
+    border: 3px solid #ffa9e7;
+    border-radius: 50px;
     font-size: 16px;
     width: 200px;
     margin-right: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+input[type="number"]:focus {
+    border-color: #ff65a3;
+    box-shadow: 0 5px 15px rgba(255, 101, 163, 0.3);
+    animation: shake 0.5s ease-in-out;
+    width: 220px;
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #FF6B6B;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
+    padding: 12px 24px;
+    border-radius: 50px;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s ease;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 0 #d44848;
+    position: relative;
+    top: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #FF8E8E;
+    animation: wiggle 0.5s infinite;
+}
+
+button:active {
+    top: 5px;
+    box-shadow: 0 0 0 #d44848;
 }
 
 #clearDatabaseBtn {
-    background-color: #f44336;
+    background-color: #4D96FF;
     margin-right: 10px;
+    box-shadow: 0 5px 0 #3a72c2;
 }
 
 #clearDatabaseBtn:hover {
-    background-color: #d32f2f;
+    background-color: #6BA5FF;
+}
+
+#changeColorBtn {
+    background-color: #FFCE45;
+    box-shadow: 0 5px 0 #d4a836;
+}
+
+#changeColorBtn:hover {
+    background-color: #FFD76B;
+}
+
+#addNumberBtn {
+    background-color: #6BCB77;
+    box-shadow: 0 5px 0 #4fa75a;
+}
+
+#addNumberBtn:hover {
+    background-color: #8AD994;
+}
+
+@keyframes borderPulse {
+    0% { border-color: #ff65a3; }
+    25% { border-color: #7afcff; }
+    50% { border-color: #feff9c; }
+    75% { border-color: #FF6B6B; }
+    100% { border-color: #ff65a3; }
 }
 
 .database-display {
-    background-color: #f9f9f9;
-    border: 1px solid #eee;
-    border-radius: 4px;
-    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 3px dashed #ff65a3;
+    border-radius: 15px;
+    padding: 1.5rem;
     margin-bottom: 1.5rem;
     text-align: left;
+    animation: borderPulse 8s infinite;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transform: rotate(1deg);
 }
 
 #numbersList {
-    list-style-position: inside;
+    list-style-type: none;
     margin-bottom: 1rem;
     max-height: 200px;
     overflow-y: auto;
+    padding: 0 10px;
 }
 
 #numbersList li {
-    padding: 5px 0;
-    border-bottom: 1px solid #eee;
+    padding: 8px 12px;
+    position: relative;
+    z-index: 1;
+    font-weight: bold;
+}
+
+#numbersList li::before {
+    content: '🔢';
+    margin-right: 10px;
+    font-size: 1.2em;
+    vertical-align: middle;
 }
 
 .stats-display {
-    background-color: #f0f8ff;
-    border: 1px solid #e0e0ff;
-    border-radius: 4px;
-    padding: 10px;
+    background-color: rgba(240, 248, 255, 0.7);
+    border: 2px dotted #6BA5FF;
+    border-radius: 12px;
+    padding: 15px;
+    transform: rotate(-1deg);
+    transition: transform 0.3s ease;
+}
+
+.stats-display:hover {
+    transform: rotate(1deg) scale(1.02);
 }
 
 .stats-display p {
-    margin: 5px 0;
+    margin: 8px 0;
     font-weight: bold;
+    position: relative;
+    padding-left: 10px;
+    font-size: 0.95rem;
+    color: #444;
 }
 
 .controls {
     display: flex;
     justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.controls::before {
+    content: 'ud83cudf08';
+    position: absolute;
+    font-size: 20px;
+    top: -25px;
+    left: 30%;
+}
+
+.controls::after {
+    content: 'ud83cudf1f';
+    position: absolute;
+    font-size: 20px;
+    top: -25px;
+    right: 30%;
 }
